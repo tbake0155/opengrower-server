@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sensors</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" href="sensors.css" rel="stylesheet" />
+</head>
+<body>
+<label id="sensor_label" for="sensors">Choose a station:</label>
+<select name="sensors" id="sensors" onchange="onSelectedChange()">
+    <option value="0">select station</option>
+    <option id="selected" th:each="sensor : ${sensors}" th:value="${sensor}" th:text="${sensor}"></option>
+</select>
+<section id="measurements">
+    <div id="measurements_div" src="" style="display:none;"></div>
+</section>
+<section>
+    <canvas id="measurements_plot"></canvas>
+</section>
+</body>
+<script type="text/javascript" src="Chart.js"></script>
+<script type="text/javascript" src="sensors.js"></script>
+</html>
